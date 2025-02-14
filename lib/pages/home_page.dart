@@ -1,3 +1,8 @@
+import 'package:donut_app_2b_sanchez/icons/tabs/burguer_tab.dart';
+import 'package:donut_app_2b_sanchez/icons/tabs/donut_tab.dart';
+import 'package:donut_app_2b_sanchez/icons/tabs/pancakes_tab.dart';
+import 'package:donut_app_2b_sanchez/icons/tabs/pizza_tab.dart';
+import 'package:donut_app_2b_sanchez/icons/tabs/smoothie_tab.dart';
 import 'package:donut_app_2b_sanchez/utils/my_tab.dart';
 import 'package:flutter/material.dart';
 
@@ -53,17 +58,20 @@ class _HomePageState extends State<HomePage> {
                fontWeight: FontWeight.bold,
                decoration: TextDecoration.underline))
           ],
-        ),
-      
-//tab bar
-      
+        ),  
+//tab bar   
 TabBar(tabs: myTabs),
-      
       //tab bar view
-      
-      
-      
-      
+Expanded(
+  child: TabBarView(children: [ 
+  DonutTab() ,
+   BurguerTab(),
+   PancakesTab(),
+   PizzaTab(),
+   SmoothieTab(),]),
+)  
+
+        
       // carrito
       
       
