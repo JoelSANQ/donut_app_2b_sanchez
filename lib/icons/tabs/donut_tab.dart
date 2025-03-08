@@ -5,10 +5,10 @@ class DonutTab extends StatelessWidget {
   //Lista de donas
   final List donutsOnSale = [
     //[donutFlavor, donutPrice, donutColor, imageName]
-    ["Ice Cream", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "95", Colors.brown, "lib/images/chocolate_donut.png"],
+    ["Ice Cream","krispy", "36", Colors.blue, "lib/images/icecream_donut.png"],
+    ["Strawberry", "walmart", "45", Colors.green, "lib/images/strawberry_donut.png", ],
+    ["Grape Ape","soriana", "84", Colors.purple, "lib/images/grape_donut.png", ],
+    ["Choco", "donkin", "95", Colors.brown, "lib/images/chocolate_donut.png", ],
   ];
 
   DonutTab({super.key});
@@ -29,9 +29,10 @@ class DonutTab extends StatelessWidget {
         itemBuilder: (context, index) {
           return DonutTile(
             donutFLavor: donutsOnSale[index][0],
-            donutPrice: donutsOnSale[index][1],
-            donutColor: donutsOnSale[index][2],
-            imageName: donutsOnSale[index][3],
+            donutEnterprise: donutsOnSale [index][1],
+            donutPrice: donutsOnSale [index][2],
+            donutColor: donutsOnSale[index][3],
+            imageName: donutsOnSale[index][4], 
           );
         });
   }
