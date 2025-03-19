@@ -70,11 +70,44 @@ Expanded(
    PancakesTab(),
    PizzaTab(),
    SmoothieTab(),]),
-)  
+) , 
 
         
       // carrito
-      
+      Container(
+        color: Colors.white,
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(padding: EdgeInsets.only(left: 28),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("2 items | \$45",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold
+                ),
+                ),
+                Text("Delivery changes included",
+                style:  TextStyle(fontSize: 12),
+                ),
+                
+                
+              ],
+            ),
+            ),
+            ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.pink,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,)),
+                  child: const Text("view car", style: TextStyle(color: Colors.white),))
+          ],),
+      )
       
         ],)
       ),
