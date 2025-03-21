@@ -12,10 +12,24 @@ class HomePage extends StatefulWidget {
 
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState(
+    
+  );
 }
 
 class _HomePageState extends State<HomePage> {
+    int cartItemCount = 0;
+     double cartTotalPrice = 0.0;
+     List<String> cartItems = [];// Contador de productos en el carrito
+
+  // Función para agregar elementos al carrito
+    void addToCart(double itemPrice, String itemName) {
+    setState(() {
+      cartItemCount++; // Incrementa el contador de productos
+      cartTotalPrice += itemPrice; // Suma el precio del producto al total
+      cartItems.add(itemName);// Suma el precio del producto al total
+    });
+  }
   List<Widget> myTabs = [
     //donut tab
     MyTab(iconPath: "lib/icons/donut.png",),
@@ -27,6 +41,7 @@ class _HomePageState extends State<HomePage> {
     MyTab(iconPath: "lib/icons/pizza.png",),
     //donut tab
     MyTab(iconPath: "lib/icons/smoothie.png",),
+    
   ];
   @override
   Widget build(BuildContext context) {
@@ -65,11 +80,11 @@ TabBar(tabs: myTabs),
       //tab bar view
 Expanded(
   child: TabBarView(children: [ 
-  DonutTab() ,
-   BurguerTab(),
-   PancakesTab(),
-   PizzaTab(),
-   SmoothieTab(),]),
+  DonutTab(addToCart: addToCart) ,
+   BurguerTab(addToCart: addToCart),
+   PancakesTab(addToCart: addToCart),
+   PizzaTab(addToCart: addToCart),
+   SmoothieTab(addToCart: addToCart),]),
 ) , 
 
         
@@ -84,7 +99,7 @@ Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("2 items | \$45",
+                Text("$cartItemCount items | \$${cartTotalPrice.toStringAsFixed(2)}",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold
@@ -108,7 +123,7 @@ Expanded(
                   child: const Text("view car", style: TextStyle(color: Colors.white),))
           ],),
       )
-      
+        
         ],)
       ),
     );

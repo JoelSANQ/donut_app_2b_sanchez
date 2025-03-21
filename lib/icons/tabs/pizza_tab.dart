@@ -2,20 +2,23 @@ import 'package:donut_app_2b_sanchez/utils/donut_tile.dart';
 import 'package:flutter/material.dart';
 
 class PizzaTab extends StatelessWidget {
+ final Function(double, String) addToCart; // <-- Nueva función para actualizar el contador
+
+  // Constructor con parámetro obligatorio
+  PizzaTab({super.key, required this.addToCart});
   //Lista de donas
   final List donutsOnSale = [
     //[donutFlavor, donutPrice, donutColor, imageName]
-    ["Whopper Jr","krispy", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["King de pollo", "walmart", "45", Colors.green, "lib/images/strawberry_donut.png", ],
-    ["Stacker XXXLLL","soriana", "84", Colors.purple, "lib/images/grape_donut.png", ],
-    ["Choco", "donkin", "95", Colors.brown, "lib/images/chocolate_donut.png", ],
-     ["Ice Cream","krispy", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "walmart", "45", Colors.green, "lib/images/strawberry_donut.png", ],
-    ["Grape Ape","soriana", "84", Colors.purple, "lib/images/grape_donut.png", ],
-    ["Choco", "donkin", "95", Colors.brown, "lib/images/chocolate_donut.png", ],
+    ["Camarones","Dominos", "170", Colors.blue, "lib/images/camarones.png"],
+    ["Extra queso", "Pizza Hut", "200", Colors.green, "lib/images/extra_queso.png", ],
+    ["Mexicana","Supper Pizza", "150", Colors.purple, "lib/images/mexicana.png", ],
+    ["Carnes Frias", "Little Caesars", "100", Colors.brown, "lib/images/pizza_carnes_frias.png", ],
+     ["Solo Queso","Costco", "200", Colors.blue, "lib/images/Orilla.png"],
+    ["Deep Dish", "New York", "220", Colors.green, "lib/images/deepdish.png", ],
+    ["Peperoni","Soriana", "135", Colors.purple, "lib/images/peperoni.png", ],
+    ["Espinacas", "Chepys Pizza", "200", Colors.brown, "lib/images/espinacas.png", ],
   ];
 
-  PizzaTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +40,7 @@ class PizzaTab extends StatelessWidget {
             donutPrice: donutsOnSale [index][2],
             donutColor: donutsOnSale[index][3],
             imageName: donutsOnSale[index][4], 
+            addToCart: addToCart,
           );
         });
   }

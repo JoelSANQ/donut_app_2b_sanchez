@@ -2,20 +2,24 @@ import 'package:donut_app_2b_sanchez/utils/donut_tile.dart';
 import 'package:flutter/material.dart';
 
 class PancakesTab extends StatelessWidget {
+  final Function(double, String) addToCart; // <-- Nueva función para actualizar el contador
+
+  // Constructor con parámetro obligatorio
+  PancakesTab({super.key, required this.addToCart});
   //Lista de donas
   final List donutsOnSale = [
     //[donutFlavor, donutPrice, donutColor, imageName]
-    ["Whopper Jr","krispy", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["King de pollo", "walmart", "45", Colors.green, "lib/images/strawberry_donut.png", ],
-    ["Stacker XXXLLL","soriana", "84", Colors.purple, "lib/images/grape_donut.png", ],
-    ["Choco", "donkin", "95", Colors.brown, "lib/images/chocolate_donut.png", ],
-     ["Ice Cream","krispy", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "walmart", "45", Colors.green, "lib/images/strawberry_donut.png", ],
-    ["Grape Ape","soriana", "84", Colors.purple, "lib/images/grape_donut.png", ],
-    ["Choco", "donkin", "95", Colors.brown, "lib/images/chocolate_donut.png", ],
+    ["Icecream Pancakes","El Globo", "90", Colors.blue, "lib/images/helado.png"],
+    ["Extra Honey Pancakes", "El Globo", "80", Colors.green, "lib/images/ultra miel.png", ],
+    ["Cream Pancakes","Esperanza", "90", Colors.purple, "lib/images/crema.png", ],
+    ["Nutella Pancakes", "Starbucks", "95", Colors.brown, "lib/images/nutella.png", ],
+     ["Krispy Pancakes","krispy Cream", "90", Colors.blue, "lib/images/krispy.png"],
+    ["Mc pancakes", "McDonalds", "80", Colors.green, "lib/images/macpancakes.png", ],
+    ["Blue Berry Pancakes","Italian Coffe", "88", Colors.purple, "lib/images/blue.png", ],
+    ["Cookie Pancakes", "Ihop", "85", Colors.brown, "lib/images/galleta.png", ],
   ];
 
-  PancakesTab({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,7 @@ class PancakesTab extends StatelessWidget {
             donutPrice: donutsOnSale [index][2],
             donutColor: donutsOnSale[index][3],
             imageName: donutsOnSale[index][4], 
+            addToCart: addToCart,
           );
         });
   }
